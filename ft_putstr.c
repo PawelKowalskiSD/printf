@@ -6,7 +6,7 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 18:14:19 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/02 18:14:19 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/03 08:27:50 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putstr(char *s)
 {
-	while(*s != '\0')
+	while (*s != '\0')
 		write(1, s++, 1);
 }

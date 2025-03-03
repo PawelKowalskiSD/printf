@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/02 17:51:05 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/03 08:22:46 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/03 12:44:13 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/03 12:47:28 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char s)
+char	ft_tolower(int c)
 {
-	write(1, &s, 1);
+	while (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
