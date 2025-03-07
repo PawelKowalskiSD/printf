@@ -42,6 +42,11 @@ int	ft_printf(const char *s, ...)
 			{
 				ft_putchar('%');
 			}
+			if (s[count] == 'p')
+			{
+				void *ptr = va_arg(args, void *);
+				// ft_point_print(ptr);
+			}
 			if (s[count] == 'x')
 			{
 				int result = va_arg(args, int);
@@ -51,6 +56,11 @@ int	ft_printf(const char *s, ...)
 			{
 				int result = va_arg(args, int);
 				ft_puthex(result, 'X');
+			}
+			if (s[count] == 'u')
+			{
+				unsigned int result = va_arg(args, unsigned int);
+				ft_put_unsigned_int(result);
 			}
 			if (s[count] == 'd' || s[count] == 'i')
 			{
@@ -85,11 +95,11 @@ int	ft_printf(const char *s, ...)
 
 int	main(void) 
 {
-	int m_result = ft_printf("ale: %d%% a teraz: %c  cos %s no to to: %s", 123421567, 'T', "ABC", "ABC");
+	int m_result = ft_printf("ale: %d%% a teraz: %c  cos %s no to to: %s %u", 123421567, 'T', "ABC", "ABC", 123);
 	printf("\n");
 	printf("m_result: %i", m_result);
 	printf("\n");
-	int o_result = printf("ale: %d%% a teraz: %c  cos %s no to to: %s", 123421567, 'T', "ABC", "ABC");
+	int o_result = printf("ale: %d%% a teraz: %c  cos %s no to to: %s %u", 123421567, 'T', "ABC", "ABC", 123);
 	printf("\n");
 	printf("o_result: %i", o_result);
 	return (0);

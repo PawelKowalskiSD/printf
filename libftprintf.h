@@ -24,6 +24,8 @@ void	ft_putchar(char s);
 void	ft_putnbr(int num);
 void	ft_putstr(char *s);
 void	ft_puthex(int num, char c);
+void    ft_put_unsigned_int(unsigned int num);
+void    ft_point_print(void *ptr);
 // char	ft_tolower(int c);
 
 #endif
