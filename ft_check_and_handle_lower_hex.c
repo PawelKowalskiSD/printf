@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_check_and_handle_lower_hex.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 06:27:35 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/03 14:34:46 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/07 14:49:39 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/07 14:53:19 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_puthex(int num, char c)
+int	ft_check_and_handle_lower_hex(va_list args)
 {
 	int	result;
 
-	if (num == 0)
-		return ;
-	if (num > 0)
-	{
-		result = num % 16;
-		ft_puthex(num / 16, c);
-		if (result < 10)
-			ft_putchar(result + '0');
-		if (result >= 10 && c == 'x')
-			ft_putchar(result + 39 + '0');
-		if (result >= 10 && c == 'X')
-			ft_putchar(result + 7 + '0');
-	}
+	result = va_arg(args, int);
+	return (ft_puthex_lower(result));
 }

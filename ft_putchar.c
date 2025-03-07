@@ -6,13 +6,14 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:51:05 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/03 08:22:46 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/07 13:39:57 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putchar(char s)
+int	ft_putchar(char s)
 {
 	write(1, &s, 1);
+	return (1);
 }

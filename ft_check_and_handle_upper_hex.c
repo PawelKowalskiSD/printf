@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_check_and_handle_upper_hex.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 12:44:13 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/03 12:47:28 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/07 14:56:36 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/07 15:25:23 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	ft_tolower(int c)
+int	ft_check_and_handle_upper_hex(va_list args)
 {
-	while (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	int	result;
+
+	result = va_arg(args, int);
+	return (ft_puthex_upper(result));
 }

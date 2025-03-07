@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point_print.c                                   :+:      :+:    :+:   */
+/*   ft_puthex_lower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 10:39:11 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 15:23:10 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/07 13:07:35 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/07 15:24:55 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_point_print(void *ptr)
+int	ft_puthex_lower(uintptr_t num)
 {
+	int			result;
 	int static	count;
-	uintptr_t	address;
 
 	count = 0;
-	address = (uintptr_t)ptr;
-	if (address != '\0')
-	{
-		write(1, "0x", 2);
-		count += 2;
-		count += ft_puthex_lower(address);
-	}
+	if (num >= 16)
+		ft_puthex_lower(num / 16);
+	result = num % 16;
+	if (result < 10)
+		count += ft_putchar(result + '0');
 	else
-		count += ft_putstr("(nil)");
+		count += ft_putchar(result + 39 + '0');
 	return (count);
 }
