@@ -6,11 +6,11 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 18:14:19 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 13:28:32 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:03:01 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {

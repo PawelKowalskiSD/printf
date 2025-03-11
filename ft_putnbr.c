@@ -6,31 +6,33 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:51:01 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 16:10:38 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:48:47 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int num)
 {
-	int static	count;
+	int		count;
+	char	*s;
 
-	count = 0;
 	if (num == -2147483648)
 		return (ft_putstr("-2147483648"));
 	if (num == 0)
 		return (ft_putchar('0'));
-	if (num < 0)
-	{
-		count += ft_putchar('-');
-		num = -num;
-	}
 	if (num > 0)
 	{
-		if ((num / 10) != 0)
-			ft_putnbr(num / 10);
-		count += ft_putchar(num % 10 + '0');
+		s = ft_digit_process(num);
+		count = ft_putstr(s);
 	}
+	if (num < 0)
+	{
+		num = -num;
+		s = ft_digit_process(num);
+		ft_putchar('-');
+		count = ft_putstr(s) + 1;
+	}
+	free(s);
 	return (count);
 }

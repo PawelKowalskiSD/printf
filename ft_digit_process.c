@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_and_handle_char.c                         :+:      :+:    :+:   */
+/*   ft_digit_process.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 13:17:48 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/11 14:04:06 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/11 19:32:59 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/11 19:47:01 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_and_handle_char(va_list args)
+char	*ft_digit_process(int num)
 {
-	char	result;
+	int		count;
+	char	*s;
 
-	result = (char)va_arg(args, int);
-	return (ft_putchar(result));
+	count = ft_count_digit(num);
+	s = malloc((count + 1) * sizeof(char));
+	if (!s)
+		return (0);
+	s[count] = '\0';
+	while (count--)
+	{
+		s[count] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (s);
 }

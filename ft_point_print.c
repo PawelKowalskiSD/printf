@@ -6,26 +6,20 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 10:39:11 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 15:23:10 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/11 22:14:37 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_point_print(void *ptr)
 {
-	int static	count;
-	uintptr_t	address;
+	int	count;
 
 	count = 0;
-	address = (uintptr_t)ptr;
-	if (address != '\0')
-	{
-		write(1, "0x", 2);
-		count += 2;
-		count += ft_puthex_lower(address);
-	}
-	else
-		count += ft_putstr("(nil)");
+	if (ptr == NULL)
+		return (ft_putstr("(nil)"));
+	count += ft_putstr("0x");
+	count += ft_hex_for_ptr((uintptr_t)ptr);
 	return (count);
 }

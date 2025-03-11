@@ -6,11 +6,11 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:34:33 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 16:05:22 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/11 22:24:25 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_check_format(va_list args, const char *s, int count, int count_char)
 {

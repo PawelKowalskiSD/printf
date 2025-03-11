@@ -6,21 +6,28 @@
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:33:16 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/07 15:21:27 by pakowals         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:00:31 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_put_unsigned_int(unsigned int num)
 {
-	int static	count;
+	int		count;
+	char	*s;
 
-	count = 0;
-	if (num > 0)
+	count = ft_count_digit(num);
+	s = malloc((count + 1) * sizeof(char));
+	if (!s)
+		return (0);
+	s[count] = '\0';
+	while (count--)
 	{
-		ft_put_unsigned_int(num / 10);
-		count += ft_putchar(num % 10 + '0');
+		s[count] = (num % 10) + '0';
+		num /= 10;
 	}
+	count = ft_putstr(s);
+	free(s);
 	return (count);
 }

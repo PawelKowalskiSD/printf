@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_and_handle_char.c                         :+:      :+:    :+:   */
+/*   ft_hex_for_ptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pakowals <pakowals@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 13:17:48 by pakowals          #+#    #+#             */
-/*   Updated: 2025/03/11 14:04:06 by pakowals         ###   ########.fr       */
+/*   Created: 2025/03/11 21:53:20 by pakowals          #+#    #+#             */
+/*   Updated: 2025/03/11 22:24:51 by pakowals         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_and_handle_char(va_list args)
+int	ft_hex_for_ptr(uintptr_t num)
 {
-	char	result;
+	int	count;
 
-	result = (char)va_arg(args, int);
-	return (ft_putchar(result));
+	count = 0;
+	if (num >= 16)
+		count += ft_hex_for_ptr(num / 16);
+	if ((num % 16) < 10)
+		count += ft_putchar((num % 16) + '0');
+	else
+		count += ft_putchar((num % 16) - 10 + 'a');
+	return (count);
 }
